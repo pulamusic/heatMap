@@ -1,0 +1,26 @@
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  background-color: #bec3e2;
+}
+
+footer p {
+  text-align: center;
+  margin: 40px 0;
+}
+
+#map-div {
+  display: block;
+  margin: 0 -100px;
+  width: 90vw;
+  padding: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(148, 159, 221, 0.4);
+  border-radius: 10px;
+}
+
+/* #tooltip {
+  color: #000;
+} */
