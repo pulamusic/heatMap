@@ -198,11 +198,6 @@ const map = () => {
     .domain([minYear, maxYear])
     .range([padding, width - padding])
 
-  // let xScale = d3.scaleTime().range([0,width]);
-  //   xScale.domain(d3.extent((d) => {
-  //   dataset[0];
-  // }));
-
   // y-scale
   const yScale = d3.scaleLinear()
     .domain([1, 13])
@@ -273,8 +268,7 @@ const map = () => {
     .enter()
     .append("rect")
     .attr("id", "legend")
-    // .attr("x", (d, i) => (50 * i) + padding) // NOTE: maybe line below
-    .attr("x" ,(d ,i) => ((50*i)) + padding)
+    .attr("x", (d, i) => (50 * i) + padding)
     .attr("y", height - 50)
     .attr("width", 50)
     .attr("height", 50)
@@ -292,7 +286,7 @@ const map = () => {
   // label for warmer side of data
   svg.append("text")
     .text("warmer")
-    .attr("x", padding * 4.5)
+    .attr("x", padding * 4.9)
     .attr("y", height - padding / 7)
     .attr("fill", "#ffffff")
     .style("font-size", "1.5em")
