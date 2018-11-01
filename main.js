@@ -175,7 +175,7 @@ const map = () => {
 
   // min and max years
   const minYear = new Date((d3.min(yearArr) - 5) + ",1,1")
-  const maxYear = new Date((d3.max(yearArr) + 5) + ",12,31")
+  const maxYear = new Date((d3.max(yearArr) + 5) + ",1,1")
   // const minYear = d3.min(yearArr) - 5
   // const maxYear = d3.max(yearArr) + 5
 
@@ -183,10 +183,10 @@ const map = () => {
   const minTemp = d3.min(varArr)
   const maxTemp = d3.max(varArr)
 
-  console.log(minYear)
-  console.log(maxYear)
-  console.log((minTemp + 8.66).toFixed(2)) // outputs 1.68
-  console.log((maxTemp + 8.66).toFixed(2)) // outputs 13.89
+  // console.log(minYear)
+  // console.log(maxYear)
+  // console.log((minTemp + 8.66).toFixed(2)) // outputs 1.68
+  // console.log((maxTemp + 8.66).toFixed(2)) // outputs 13.89
   // console.log(varArr)
 
   // // min and max months
@@ -197,6 +197,11 @@ const map = () => {
   const xScale = d3.scaleTime()
     .domain([minYear, maxYear])
     .range([padding, width - padding])
+
+  // let xScale = d3.scaleTime().range([0,width]);
+  //   xScale.domain(d3.extent((d) => {
+  //   dataset[0];
+  // }));
 
   // y-scale
   const yScale = d3.scaleLinear()
@@ -239,7 +244,7 @@ const map = () => {
         .attr("x", xScale(new Date(d[0] + ",1,1")) + toolMargin(d[0]) + 25)
         .attr("y", yScale(d[1]) + 30)
         .attr("fill", "#000000")
-        .text(getMonth(d[1]) + " " + d[0] + " || " + (base + d[2]).toFixed(2) + "C")
+        .text(getMonth(d[1]) + " " + d[0] + " || " + (base + d[2]).toFixed(2) + "\u2103")
     })
     // tooltip mouseout
     .on("mouseout", (d) => {
@@ -313,7 +318,7 @@ const map = () => {
     .attr("x", width / 2)
     .attr("y", padding / 2)
     .attr("text-anchor", "middle")
-    .style("font-size", "1.2em")
+    .style("font-size", "1.4em")
     .text("Monthly Global Land-Surface Temperature, 1753-2015")
 
   // subtitle
@@ -322,6 +327,6 @@ const map = () => {
     .attr("x", width / 2)
     .attr("y", (padding / 2) + 25)
     .attr("text-anchor", "middle")
-    .text("base temperature 8.66 Celsius")
+    .text("base temperature 8.66 \u2103")
 
 } // end of map function
