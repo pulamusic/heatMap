@@ -14,8 +14,6 @@ const colors = ["#a50026","#d73027","#f46d43","#fdae61","#fee090","#ffffbf","#e0
 // set temps and colors for legend
 // NOTE: min temp = 1.68, max temp = 13.89. See console.log below.
 const legendScale = [2.8, 3.9, 5, 6.1, 7.2, 8.3, 9.5, 10.6, 11.7, 12.8, 12.9]
-// const legendScale = [2.0, 3.5, 5, 6.1, 7.2, 8.3, 8.9, 10.6, 11.7, 12.8, 12.9]
-
 
 const legendArr = [
   [colors[10], legendScale[0]],
@@ -145,15 +143,15 @@ const toolMargin = (year) => {
 
 // ********************JSON CALL**********************
 
-req = new XMLHttpRequest();
-req.open("GET", url ,true);
-req.send();
+req = new XMLHttpRequest()
+req.open("GET", url ,true)
+req.send()
 req.onload = () => {
-  json = JSON.parse(req.responseText);
-  dataset = json.monthlyVariance;
-  base = json.baseTemperature;
-  map();
-};
+  json = JSON.parse(req.responseText)
+  dataset = json.monthlyVariance
+  base = json.baseTemperature
+  map()
+}
 
 // **********************MAP FUNCTION************************
 
@@ -176,8 +174,6 @@ const map = () => {
   // min and max years
   const minYear = new Date((d3.min(yearArr) - 5) + ",1,1")
   const maxYear = new Date((d3.max(yearArr) + 5) + ",1,1")
-  // const minYear = d3.min(yearArr) - 5
-  // const maxYear = d3.max(yearArr) + 5
 
   // min and max temperatures
   const minTemp = d3.min(varArr)
@@ -188,10 +184,6 @@ const map = () => {
   // console.log((minTemp + 8.66).toFixed(2)) // outputs 1.68
   // console.log((maxTemp + 8.66).toFixed(2)) // outputs 13.89
   // console.log(varArr)
-
-  // // min and max months
-  // const minMonth = new Date("2018,1,1")
-  // const maxMonth = new Date("2018,12,31")
 
   // x-scale
   const xScale = d3.scaleTime()
@@ -216,7 +208,6 @@ const map = () => {
     .enter()
     .append("rect")
     .attr("class", "cell")
-    // .attr("class", (d) => "cell-" + d[0] + "" + d[1])
     .attr("data-month", (d) => getMonth(d[1]))
     .attr("data-year", (d) => d[0])
     .attr("data-temp", (d) => (base + d[2]))
