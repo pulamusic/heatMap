@@ -312,7 +312,8 @@ const map = () => {
     .attr("x", width / 2)
     .attr("y", padding / 2)
     .attr("text-anchor", "middle")
-    .style("font-size", "1.4em")
+    .style("font-size", "1.6em")
+    .style("font-weight", "bold")
     .text("Monthly Global Land-Surface Temperature, 1753-2015")
 
   // subtitle
