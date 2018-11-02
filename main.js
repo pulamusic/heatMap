@@ -172,8 +172,8 @@ const map = () => {
   }
 
   // min and max years
-  const minYear = new Date((d3.min(yearArr) - 5) + ",1,1")
-  const maxYear = new Date((d3.max(yearArr) + 5) + ",1,1")
+  const minYear = new Date(d3.min(yearArr) + ",1,1")
+  const maxYear = new Date(d3.max(yearArr) + ",1,1")
 
   // min and max temperatures
   const minTemp = d3.min(varArr)
@@ -192,7 +192,7 @@ const map = () => {
 
   // y-scale
   const yScale = d3.scaleLinear()
-    .domain([1, 13])
+    .domain([1, 12.6])
     .range([padding, height - padding])
 
   // create the map
