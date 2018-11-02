@@ -285,6 +285,7 @@ const map = () => {
 
   // x-axis
   const xAxis = d3.axisBottom(xScale)
+    .tickFormat(d3.timeFormat("%Y"))
     svg.append("g")
       .attr("id", "x-axis")
       .attr("transform", "translate(0, " + (height - padding + 15) + ")")
